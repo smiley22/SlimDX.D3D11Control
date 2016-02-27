@@ -2,7 +2,7 @@
 using SlimDX.DXGI;
 using System;
 using System.ComponentModel;
-using System.Diagnostics;
+using System.Diagnostics.CodeAnalysis;
 using System.Drawing;
 using System.Windows.Forms;
 using Device = SlimDX.Direct3D11.Device;
@@ -206,7 +206,7 @@ namespace SlimDX.Windows {
 				const int CS_HREDRAW = 0x2;
 				const int CS_OWNDC = 0x20;
 
-				CreateParams cp = base.CreateParams;
+				var cp = base.CreateParams;
 				// Setup necessary class style on windows.
 				cp.ClassStyle |= CS_VREDRAW | CS_HREDRAW | CS_OWNDC;
 				return cp;
@@ -269,11 +269,11 @@ namespace SlimDX.Windows {
 		/// </param>
 		public void ResizeViewport(Size s) {
 			var current = Context.Rasterizer.GetViewports();
-			var viewport = new Viewport(0, 0, ClientSize.Width, ClientSize.Height);
+			var viewport = new Viewport(0, 0, s.Width, s.Height);
 			Context.Rasterizer.SetViewports(viewport);
 			// See if we need to raise an AspectRatioChanged event.
 			if (current.Length > 0) {
-				float oldAspectRatio = current[0].Width / (float)current[0].Height;
+				var oldAspectRatio = current[0].Width / current[0].Height;
 				if (!NearlyEqual(AspectRatio, oldAspectRatio)) {
 					OnAspectRatioChanged(EventArgs.Empty);
 				}
@@ -354,13 +354,9 @@ namespace SlimDX.Windows {
 		/// </param>
 		protected override void OnResize(EventArgs e) {
 			base.OnResize(e);
-			// FIXME: If the form is minimized, OnResize is triggered with a client-size of (0,0),
-			//        so handle that here. Otherwise Texture2D will, for whatever reason (???)
-			//        invoke the parent form's Run method. It must have something to do with the
-			//        MessagePump and PeekMessage but I can't figure it out.
+			// If the form is minimized, OnResize is triggered with a client-size of (0,0).
 			if (ClientSize.IsEmpty)
 				return;
-
 			if (swapChain == null)
 				return;
 			ReleaseCOMObjects(false);
@@ -445,19 +441,20 @@ namespace SlimDX.Windows {
 		/// <returns>
 		/// true if the values are considered equal; otherwise, false.
 		/// </returns>
+		[SuppressMessage("ReSharper", "CompareOfFloatsByEqualityOperator")]
 		static bool NearlyEqual(float a, float b, float epsilon = .0000001f) {
-			float absA = Math.Abs(a);
-			float absB = Math.Abs(b);
-			float diff = Math.Abs(a - b);
-			if (a == b) { // shortcut, handles infinities
+			var absA = Math.Abs(a);
+			var absB = Math.Abs(b);
+			var diff = Math.Abs(a - b);
+			if (a == b) // shortcut, handles infinities
 				return true;
-			} else if (a == 0 || b == 0 || diff < float.MinValue) {
+			if (a == 0 || b == 0 || diff < float.Epsilon) {
 				// a or b is zero or both are extremely close to it
 				// relative error is less meaningful here
-				return diff < (epsilon * float.MinValue);
-			} else { // use relative error
-				return diff / (absA + absB) < epsilon;
+				return diff < epsilon;
 			}
+            // use relative error
+			return diff / (absA + absB) < epsilon;
 		}
 
 		/// <summary>
@@ -498,8 +495,8 @@ namespace SlimDX.Windows {
 		/// Updates the rasterizer state for the rasterizer stage of the pipeline.
 		/// </summary>
 		void UpdateRasterizerState() {
-			RasterizerState rs = RasterizerState.FromDescription(device, rsDescription);
-			RasterizerState oldRs = Context.Rasterizer.State;
+			var rs = RasterizerState.FromDescription(device, rsDescription);
+			var oldRs = Context.Rasterizer.State;
 			Context.Rasterizer.State = rs;
 			if (oldRs != null) {
 				oldRs.Dispose();

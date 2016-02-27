@@ -26,5 +26,4 @@ This library is copyright © 2014-2015 Torben Könke.
 
 ### License
 
-This library is released under the [MIT license](https://github.com/qwert9001/SlimDX.D3D11Control/blob/master/LICENSE).
-
+This library is released under the [MIT license](https://github.com/smiley22/SlimDX.D3D11Control/blob/master/LICENSE).
