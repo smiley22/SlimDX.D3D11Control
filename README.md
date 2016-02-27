@@ -1,5 +1,5 @@
 # SlimDX.D3D11Control
-SlimDX.D3D11Control is a D3D11-aware WinForms control for use with SlimDX. It takes care of the boilerplate of device context initialization and swapchain setup. It also provides a couple of useful properties for configuring vertical synchronization, setting the rasterizer's cull- and fillmode, etc.
+SlimDX.D3D11Control is a D3D11-aware WinForms control for use with SlimDX. It takes care of the boilerplate of device context initialization and swapchain setup. It also provides a couple of useful properties for configuring vertical synchronization, setting the rasterizer's cull- and fillmode, etc. but otherwise won't get in your way.
 
 ### Installation
 
@@ -11,7 +11,14 @@ Once installed, the D3D11Control component should automatically popup in the Too
 
 ### Documentation
 
-You can browse the online documentation [here](http://smiley22.github.io/SlimDX.D3D11Control/Documentation/). You can also take a look at the [MultiRes3d](https://github.com/smiley22/MultiRes3d) application which makes use of the control.
+You can browse the online documentation [here](http://smiley22.github.io/SlimDX.D3D11Control/Documentation/). A minimalistic example application can
+be found in the /Example directory of the solution. You can also take a look at the [MultiRes3d](https://github.com/smiley22/MultiRes3d) application
+which makes use of the control.
+
+<p align="center">
+ <img src="http://smiley22.github.io/SlimDX.D3D11Control/Images/SlimDX.D3D11Control.1.png" alt="Simple WinForms Application" />
+</p>
+
 
 ### Credits
 

@@ -5,6 +5,8 @@ VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SlimDX.D3D11Control", "SlimDX.D3D11Control.csproj", "{AA505758-FCA7-45A3-B5B8-1960E93C9DA1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Example", "Example\Example.csproj", "{CCB42E6E-ADFE-41C7-98BA-4D438BA9BD13}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,14 @@ Global
 		{AA505758-FCA7-45A3-B5B8-1960E93C9DA1}.Release|Any CPU.Build.0 = Release|Any CPU
 		{AA505758-FCA7-45A3-B5B8-1960E93C9DA1}.Release|x86.ActiveCfg = Release|x86
 		{AA505758-FCA7-45A3-B5B8-1960E93C9DA1}.Release|x86.Build.0 = Release|x86
+		{CCB42E6E-ADFE-41C7-98BA-4D438BA9BD13}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CCB42E6E-ADFE-41C7-98BA-4D438BA9BD13}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CCB42E6E-ADFE-41C7-98BA-4D438BA9BD13}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{CCB42E6E-ADFE-41C7-98BA-4D438BA9BD13}.Debug|x86.Build.0 = Debug|Any CPU
+		{CCB42E6E-ADFE-41C7-98BA-4D438BA9BD13}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CCB42E6E-ADFE-41C7-98BA-4D438BA9BD13}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CCB42E6E-ADFE-41C7-98BA-4D438BA9BD13}.Release|x86.ActiveCfg = Release|Any CPU
+		{CCB42E6E-ADFE-41C7-98BA-4D438BA9BD13}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
