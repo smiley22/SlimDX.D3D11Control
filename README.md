@@ -12,7 +12,7 @@ Once installed, the D3D11Control component should automatically popup in the Too
 ### Documentation
 
 You can browse the online documentation [here](http://smiley22.github.io/SlimDX.D3D11Control/Documentation/). A minimalistic example application can
-be found in the /Example directory of the solution. You can also take a look at the [MultiRes3d](https://github.com/smiley22/MultiRes3d) application
+be found in the [/Example](/Example) directory of the solution. You can also take a look at the [MultiRes3d](https://github.com/smiley22/MultiRes3d) application
 which makes use of the control.
 
 <p align="center">
